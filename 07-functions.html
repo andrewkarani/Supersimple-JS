@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUNCTIONS</title>
+</head>
+<body>
+  <script>
+    // function lets us reuse code
+    // syntax for naming functions
+    // 1.we cant use special words eg function  
+    // 2. we cant start with a number
+    // 3. we cant use special characters except: $_
+
+    // functions help us reuse our code
+    // another feature of functions is the return statement 
+    // return statement lets us return a value from a function
+    // after using return any other code inside the function is not executed
+    // inside a function we can call other functions
+
+    // Parameters - put a value into a function
+    function calculateTax(cost, taxPercent = 0.1){
+      //the 0.1 will be used as tax percent if a second argument is not provided
+      console.log(cost * taxPercent);
+    }
+    calculateTax(2000, 0.2);// the 2000 hererep the parameter value// this is called passing an argument
+    // parameter naming rules r similar to variables
+    // parameters only exist inside the functions scope
+    calculateTax(5000); // this will give us undefined unless we set a default value for the parameter
+
+  </script>
+</body>
+</html>

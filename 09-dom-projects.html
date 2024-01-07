@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM projects</title>
+</head>
+<body>
+  <p>Youtube Subscribe Button</p>
+  <button onclick="
+  // we need to get the text that is inside the button using document.querySelector
+  // we will add a class attribute
+  // we will also save the result in a variable
+  /* commenting out this code and putting it in a fuction in the script elements
+  const buttonElement = document.querySelector('.js-subscribe-button');
+  // we need to change the text to subscribed
+  // if the subscribe has spaces beside it this will result in error hence to solve this we will not use innerHTML but innertext
+  if (buttonElement.innerText === 'Subscribe'){
+    buttonElement.innerHTML = 'Subscribed';
+  };else {
+    buttonElement.innerHTML = 'Subscribe';
+  }*/
+  // calling the fucntion subscribe
+  subscribe();
+  " class="js-subscribe-button">Subscribe</button>
+  <!--wen we click the subscribe buttton we want it to change to subscribed otherwise we will change it back-->
+
+  <p>Amazon Shipping Calculator</p>
+  <!--
+    wen we click the button we will get the text in the text box and if amount is less than $40 , add $10 and display total on the page
+  -->
+  <!--JS has aother eventlistener called onkeydown which runs after you have pressed sth like enter not necessarily after clicking the button
+  every eventlistener also gets an event object-->
+  <input placeholder="Cost of Order" class="js-cost-input" onkeydown="
+  // algo: wen we press a key we r going to check if the key s the Enter key. if it is we will do the same thing as he calculate button
+  // we can check the event. and also the event key that was pressed
+  /*commenting out this code since I am moving it into the function under the script tag
+  console.log(event.key)
+  if (event.key === 'Enter'){
+    calculateTotal();// we r calling this function to execute
+  }*/
+  // calling the function we have created
+  handleCostKeydown(event);
+  ">
+  <button onclick="
+    // function created in the script tag
+    calculateTotal()
+  ">Calculate</button>
+  <p class="js-total-cost"></p>
+
+   <script>
+
+    /* OTHER FEATURES OF JS
+      to convert a number to JS we can use the built in function  called string
+      String(90)
+      another NUILT IN OBJECT is the window object
+      window object represents the browser
+      hence the document object which reps the webpage is inside the window object hence if we type 
+      window.document -- this will give us the document object we have been using 
+      window.console -- will give us the same console object we have been using in this course 
+      window.console.log --- this will do the same thing as console.log
+      window.alert -- this will do the same thing as alert function we have been using to create popups
+      however we dont normally use it since JS automatically adds it wen you type sth like console.log
+
+    */
+    // function for the onkeydown event
+    // to save the event inside the functions scope we need to set a parameter
+    function handleCostKeydown(event){
+      console.log(event.key)
+      if (event.key === 'Enter'){
+        calculateTotal();// we r calling this function to execute
+    }
+  }
+    // fuction for after clicking the calculate button
+    function calculateTotal() {
+      const inputElement = document.querySelector('.js-cost-input')
+      // wenever we get a value from a DOM it will be a string
+      // the cost is a string hence to make it a number we will use a built-in function called Number
+      let cost = Number(inputElement.value); // this is how we get the text inside the textbox/ Notice that input elements do not have any HTML hence innerHTML WUD NOT work
+
+      // checking if cost is less than $40 
+      if (cost < 40) {
+        cost = cost + 10;
+      }
+      document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+    }
+    // to make our code cleaner we will put our code in a function and put THE JS code 
+  function subscribe(){
+      const buttonElement = document.querySelector('.js-subscribe-button');
+    // we need to change the text to subscribed
+    // if the subscribe has spaces beside it this will result in error hence to solve this we will not use innerHTML but innertext
+      if (buttonElement.innerText === 'Subscribe'){
+        buttonElement.innerHTML = 'Subscribed';
+      }else {
+        buttonElement.innerHTML = 'Subscribe';
+      }
+    };
+   </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+  <button>hello</button>
+  <button class="js-button">King</button>
+<script>
+/* the DOM is another built in object called document object
+THE DOCUment object represents/ models the webpage
+The DOM represents the structure of a web page as a tree of objects, where each object corresponds to an element on the web page.
+
+*/
+// properties and Methods
+// we can html elements inside of JSand it gives js contol of the web page
+document.title = 'DOM2';
+// The DOM COMBINES JS and HTML together 
+// wen an html element is inside a JS like the example above the html element is converted to JavaScript object
+// a useful property is the inner.HTML. it gives us all of the html inside the body element
+console.log(document.body.innerHTML);
+// changing the inner.html changes the html inside the body element
+document.body.innerHTML = 'changed';
+// another feature of innerhtml is you can create new html
+document.body.innerHTML = '<button>good job</button>';
+//   Method
+//is a function saved inside an object
+// document.querySelector() lets us get any element from the page and put it inside JS
+//inside the brackets we put the element we want to select inside a string
+document.querySelector('button')// gets the first buuton on the page
+// to see the innerHTML inside of the element
+console.log(document.querySelector('button').innerHTML);
+// to change the innerHtml
+
+
+document.querySelector('button').innerHTML = 'changed';
+// what if we have 2 buttons on the page . to get the 2 button we can add a class to it 
+// then to select the class we will start the class name with a dot.
+//common  practiceistostart with js- to make it clear that this class is being used in JS
+document.querySelector('.js-button');
+// we can save this into a variable since it is an html element
+
+const buttonElement = document.querySelector('.js-button');
+console.log(buttonElement);
+
+// so DOM combines HTML And JS 
+</script>
+</body>
+</html>

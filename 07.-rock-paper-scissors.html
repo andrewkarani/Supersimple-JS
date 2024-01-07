@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock paper scissors</title>
+</head>
+<body>
+  <p>
+    <h1>Rock Paper Scissors</h1>
+  </p>
+  <button onclick="
+    playGame('rock')
+  ">Rock</button>
+  <button onclick="
+  playGame('paper');
+  ">Paper</button>
+  <button onclick="
+// we need to call the function and save the value of the parameter
+    playGame('scissors');
+  ">Scissors</button>
+
+  <script>
+// lets create functions with a parameter to reuse the code for the move that a user picks and comparing it to computers  move
+    function playGame(playerMove){
+      // we need to call the function created below
+// pickComputerMove();
+// here we r saving the fuction inside the variable which is also being returned
+
+      const computerMove = pickComputerMove();
+    // comparing
+    let result = '';
+    if (playerMove === 'scissors'){
+      if(computerMove === 'rock'){
+      result = 'You lose!.';
+      } else if (computerMove === 'paper'){
+        result = 'You win!';
+      }else if (computerMove === 'scissors'){
+        result = 'You Tie';
+      }
+       
+    }else if (playerMove === 'paper'){
+      if(computerMove === 'rock'){
+      result = 'You win!.';
+    } else if (computerMove === 'paper'){
+      result = 'Tie!';
+    }else if (computerMove === 'scissors'){
+      result = 'You lose!';
+    }
+
+    }else if (playerMove === 'rock'){
+      if(computerMove === 'rock'){
+      result = 'Tie.';
+      } else if (computerMove === 'paper'){
+        result = 'You lose!';
+      }else if (computerMove === 'scissors'){
+        result = 'You win!';
+      }
+
+    }
+    
+    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+    }
+
+
+    // because the code for the computerMove is the same this is a perfect scenario for using functions
+    // one recommendation for function names is to use a verb or action eg in below we use pick
+    // we need to create the function first in the script move b4 calling it in the buttons 
+    // funtions create a scope hence we need to create the variable computerMove outside the function scope to be able to use it elsewhere
+    // variables like this that can be accessed anywhere r called global variables
+
+  //   let computerMove = '';
+  // a better way of solving the above problem is having the function return the variable computerMove and save it 
+
+    function pickComputerMove(){
+    const randomNumber = (Math.random());
+    let computerMove = '';
+  if (randomNumber >= 0 && randomNumber < 1/3) {
+      computerMove = 'rock';
+    } else if(randomNumber >= 1/3 && randomNumber< 2/3){
+       computerMove = 'paper';
+    } else if (randomNumber >= 2/3 && randomNumber < 1){
+      computerMove = 'scissors';
+    };
+    return computerMove;
+    }
+    
+  </script>
+</body>
+</html>

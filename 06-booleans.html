@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+
+    <main>
+        
+    </main>
+    <script>
+      // if statements dont just work with boolean values they also work with truthy and falsy values
+      if (5) {
+        console.log('truthy');
+      }
+      // the number 5 inthe above is a truthy value because it behaves just like true
+      if (0) {
+        console.log('truthy');
+      }
+      // the number 0 behaves just like false hence called a falsy value
+      // faisy values include; false, 0, '', undefined, null, NaN
+      // NaN means not a number. 
+      // any value not on this list is truthy
+      // truthy and falsy values r used as 
+      // 1. As shortcuts in our code instead of using shortcuts
+      const cartQuantity = 5;
+      if (cartQuantity){
+        console.log('cart has products')
+      };// this code will run coz cartQuantity has a truthy value
+
+      // truthy and falsy also work with logical operators eg 
+      console.log (!0)// here the not operator(!) flips zero which is a falsy value to truthy
+      // hence the above code displays truthy
+      // NaN
+      console.log('text'/5);// this gives the result as NaN. it is gotten if we do an inavlid math
+      // undefined - means the variable doesnt have a value
+      let variabele1;
+      console.log(variable1); // result is  undefined
+      // undefined cannot be used with const
+
+      /* SHORTCUTS FOR IF STATEMENTS
+      Ternary operator ?:
+      */
+      // Ternary operator
+      true ? 'truthy' : 'falsy' // this is like the if else statement
+      // true rep the condition inside parenthesis
+      //truthy rep what is inside the cury braces
+      // falsy rep the else statement
+      // an adv of the ternary operator is you can store it inside a variable
+      const result = true ? 'truthy' : 'falsy';
+      console.log(result);// the result brings truthy coz it is true
+
+      // Guard Operator &&
+      //remember the and operator checks if both sides of a condition r true so if the first condition is false it short circuits ie it doesnt check the other condition 
+      // so we can use this to gurd the second condition
+      false && console.log('hello');
+      // the above returns falsy
+      // we can save the guard operator in a variable
+      const message = false && 'hello'
+      console.log(message); // this returns the first message ie false
+       
+      // Default operator || 
+      // remember the or operator also stops early if the first vale is truthy ie short circiuts since if first value is truthy there is no need to check the next operator
+// lets choose a currency as euros but if euros is not chosen we will use USD as the default currency
+    const currency = 'EUR' || 'USD'; 
+    console.log(currency); //returns EUR since it short circuits
+    const currency = undefined || 'USD'; 
+    console.log('currency')// RETURNS USD since it doesnt shortcircuit coz EUR is not chosen
+
+
+
+    </script>
+
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+</body>
+</html>

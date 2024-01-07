@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays and Loops</title>
+</head>
+<body>
+  <script>
+    // creating an array 
+   const myArray = [10, 20, 30];
+   console.log(myArray);
+   // inside an array we can put a boolean, an object or even an interger
+   // we can also have an array inside an array
+   //an array is a special type of object hence also have properties and methods that we can use 
+   const rewn = [true, { name: 'socks'}, [1,2]];
+   // to check if sth is an array 
+   console.log(Array.isArray([1,2])); // will display true
+   // a useful array method is .push() - adds a value to the end of an array
+   myArray.push(100);
+   //.splice() - removes a value frm an array
+   // takes 2 values. the 1st is the  index we want to remove 
+   // 2nd number is the number of values to remove
+   // hence splice(1, 2)- remove 2 values frm index 1
+   myArray.splice(0, 2);
+
+   /*
+   3 major parts of creating a loop include the loop variable, the loop condition and the increment step
+   // eachtime a loopruns is called an iteration
+   // loops create a scope
+   2 types of loops in JS r while and for loops.
+   wen to use them
+   for standard loops - use for loop
+   non-standardloops - use a while loop
+   eg of non-standard loop is a loop that generates random numbers until onethats at least 0.5
+
+   */
+  let randomNumber = 0;
+  while (randomNumber < 0.5) {
+    randomNumber = Math.random();
+  }
+  console.log(randomNumber);
+  // the above is a non standad loop because it does not have an increment step
+
+  /*   LOOPING thru an AARRAY
+going thru each value of an array one by one 
+ and doing sth with each value
+
+  */
+const todoList = [
+  'make dinner',
+  'wash dishes',
+  'watch youtube'
+];
+// usea loop to go thruthe above arrayand print out each item in the array
+
+for (let index = 0; index <= todoList.length - 1; index++) {
+  // creating a variable for the todolist item 
+  const doList = todoList[index];
+  console.log(doList);
+  // index can be shortened to i
+}
+// technique we can combine with looping thru an array is callled the accumulator pattern
+  </script>
+</body>
+</html>

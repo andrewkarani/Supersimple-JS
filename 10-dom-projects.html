@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM projects</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+      .subscribe-button {
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 10px 15px 10px 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;/* changescursor to hand pointer*/
+        margin-bottom: 35px;
+      }
+      .is-subscribed{
+        background-color: rgb(240, 240, 240);
+        color: black;
+
+      }
+      .cost-input {
+        font-size: 15px;
+        padding: 10px 10px 10px 10px;
+
+      }
+      .calculate-button {
+        background-color: green;
+        color: white;
+        border: none;
+        font-size: 15px;
+        padding: 12px 15px; /* wen we set 2 valuethe 1st value is the horizontal and vertical , 2nd value is the right and left*/
+        cursor: pointer;
+      }
+ 
+    </style>
+</head>
+<body>
+  <p>Youtube Subscribe Button</p>
+  <button onclick="
+ 
+  subscribe();
+  " class="js-subscribe-button subscribe-button">Subscribe</button>
+  <p>Amazon Shipping Calculator</p>
+  
+  <input placeholder="Cost of Order" class="js-cost-input cost-input" onkeydown="
+
+  handleCostKeydown(event);
+  ">
+  <button class = "calculate-button" onclick="
+    // function created in the script tag
+    calculateTotal()
+  ">Calculate</button>
+  <p class="js-total-cost"></p>
+
+   <script>
+    function handleCostKeydown(event){
+      console.log(event.key)
+      if (event.key === 'Enter'){
+        calculateTotal();// we r calling this function to execute
+    }
+  }
+    function calculateTotal() {
+      const inputElement = document.querySelector('.js-cost-input')
+      let cost = Number(inputElement.value);
+      if (cost < 40) {
+        cost = cost + 10;
+      }
+      document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+    }
+  function subscribe(){
+      const buttonElement = document.querySelector('.js-subscribe-button');
+      if (buttonElement.innerText === 'Subscribe'){
+        buttonElement.innerHTML = 'Subscribed';
+        // we want tostyle the appearance after clicking the subscribe button
+        // every element in has a .classlist which gives us control of the class attribute
+        // so a solution is to add a class thatwill have different styles
+        // classList is an bject which means it has properties and methods that we can use
+        // one method is called .add which adds a class to an element
+        // in the braces we add a string of the class name and style it in our CSS
+        buttonElement.classList.add('is-subscribed');
+      }else {
+        buttonElement.innerHTML = 'Subscribe';
+        // we want to remove the is-subscribed class after clicking on subscribed 
+        // class list has another method that we can use called the remove()
+        buttonElement.classList.remove('is-subscribed');
+      }
+    };
+   </script>
+</body>
+</html>

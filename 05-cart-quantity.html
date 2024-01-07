@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Quantity</title>
+</head>
+<body>
+  <button onclick="
+  // rem wen want to insert a value into a string we use a template string
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">Show Quantity</button>
+  <button onclick="
+    cartQuantity = cartQuantity + 1;
+    console.log(`Cart quantity: ${cartQuantity}`);
+  ">Add to Cart</button>
+  <button onclick="
+    cartQuantity = cartQuantity + 2;
+    console.log(`Cart quantity: ${cartQuantity}`);
+  ">+2</button>
+  <button onclick="
+  cartQuantity = cartQuantity + 3;
+  console.log(`Cart quantity: ${cartQuantity}`);
+  ">+3</button>
+  <button onclick="
+  cartQuantity = 0;
+  console.log('cart quantity was reset');
+  console.log(`Cart quantity: ${cartQuantity}`); 
+  ">Reset Cart</button>
+  <script>
+    // we need a variable to save the cart quantity
+    let cartQuantity = 0;
+
+    // short cuts for reassigning a variable
+    // to shortenthis line of code - cartQuantity = cartQuantity + 2;
+    // we can use - cartQuantity +=2;
+    // adding plus one to avariable is so common that we have an even shorter code 
+    // cartQuantity++     ---this adds one
+
+    // best naming variables conventions
+    // the naming style used above is called camelCase. using camelCase we combine the words together and capitalise each word except the first word
+    // camel case is the standard naming convention for JS
+    // other naming conventions r pascal case where the fisrt word is capitalised. In JS there is 1 feature where we use PascalCase eg CartQuantity
+    // kebab case involves keeping words as lowercase and combining through use of dash to combine words. This is used in HTML and CSS . doesnt work in JS eg cart-quantity
+    // snake case whre we combine words with underscores eg cart_quantity. not used in JS. it is used in other languages
+    // wen naming variables choose a word that is not too short or too long
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects</title>
+</head>
+<body>
+  <script>
+    /* objects
+groups multiple values together
+objects make our code more organised
+*/
+const product = {
+  name: 'socks',
+  price: 1090,
+  // another type of value we can put in a object is a function
+  // saving functions inside objects is called a method
+  fun: function function1(){
+    console.log ('function inside object')
+  }
+};
+// we can add a property to an object
+product.newProperty = true;
+
+// we can also delete a a property from an object
+delete product.newProperty;
+
+const product2 = {
+  name: 'socks',
+  price: 1090,
+  ['delivery-time'] : '1 day'
+};
+console.log(product2.name); // this is dot notation
+console.log(product2['name'])// this is bracket notation
+// bracket notation is used with properties that wud return an error if dot notation was used
+// eg console.log(product2.delivery-time) -- this wud not work coz of the minus sign
+// console.log(product2['delivery-time'])
+
+// to call the function created above in the object
+// we call it justlike we wud call any other function
+
+product2.fun();
+
+// Built-in objects - objects that r built in the language 
+// eg console.log, or math,random
+
+/*      JSON BUILT IN OBJECT
+JSON - javascript object notation
+json doesnt support double quotes
+doesnt support functions
+is similar to a JS object
+has less features
+JSON is more universal
+we use JSON  wen we send data btwn computers
+we also use JSON to store data
+
+JSON object helps us convert JS object to JSON
+
+*/
+JSON.stringify(product2)
+console.log(JSON.stringify(product2));
+// stringify is a method of the JSON object
+// btwn the brackets we can give it the JS object we want to convert
+// stringify results in a string
+
+// lets learn how to convert from a JSON TO A JS object
+// we use another method called JSON.parse
+JSON.parse(JSON.stringify(product2));
+console.log(JSON.parse(JSON.stringify(product2)));
+
+// the next Built in object: is local storage
+// local storage saves values more permanently not like variables which store temporary and data deleted wen we refresh the page
+// to save sth in local storage it has a method called setItem()
+// we r going to give 2 strings to this method: the first string is a name, and the 2nd string is the value you want to save inside local storage
+// localStorage only supports strings
+localStorage.setItem();
+
+// to get the value you saved in localSTorage we use
+// we give it one string which is the name that we saved in localstorage
+localSorage.getItem();
+// then you can console.log to get the value you had saved displayed to you
+/* Null vs Undefined 
+null is one of the falsy values 
+null is used wenweintentionally want sth to be empty
+but with undefined if you set a default value it will be used
+*/
+
+//       AUTO BOXING
+// objects have properties and methods
+// but other values such as strings can have properies and methods
+console.log('hello'.length);// the length above is a property
+console.log('hello'.toUppercase()); //this is a method
+// this is called autoboxing where JS automatically wraps the string in a special object 
+// autoboxing works withnumbers an booleans but doesnt work with null and undefined
+/* OBJECTS R REFERENCES
+In JavaScript, think of objects as containers that can hold information, like a box. When you create an object, you're essentially making a new box to store data.
+
+Now, here's where it gets interesting. When you work with objects in JavaScript, you're actually working with references to these boxes, not the boxes themselves.
+
+Imagine you have a special slip of paper that tells you where a particular box is located. This slip of paper is the reference to the box. You can copy this slip of paper and give it to someone else, and they can access the same box using that reference.
+
+So, when you have two variables that point to the same object (using those slips of paper), if you change something inside the box (like putting a new item in the box), both variables will see that change because they're looking at the same box through their references.
+
+This is different from some other types of data in JavaScript, like numbers or strings, where when you copy them, you're actually making a whole new piece of data, not just a reference to the same one.
+
+JS just copies the reference and this is called copy by reference
+
+*/
+const object1 = {
+  message: 'hello'
+};
+/* interesting behaviours of using refernces
+
+even tthough we are using const we can still change the value saved inside the object
+2. we cant compare objects directly this is because they have different references
+3. wen you have 2 objects referenced to the same reference and you change one object the second object also changes
+*/ 
+object1.message = 'good job';
+
+// SHORTCUTS FOR OBJECTS 
+const object3 = {
+  message: 'Good job!',
+  price: 799
+};
+// if the variable name and the property name are the same we have a shortcut for it 
+const message = object4.message;
+const { message } = object4; // this is called destructuring
+// we can use the shortcut for multiple properties
+// destructuring is an easy way to take properties out of an object
+const { message, price } = object4;
+console.log(message);
+console.log(price);
+
+// shorthand property
+
+const object5 = {
+  // message: message
+  // if the property & variable name are the same we can just type it out once
+  message,// this is called the shorthand property
+
+  // shorthand method
+  method: function function1(){
+    console.log('method');
+  }
+  //the shortcut for the above is 
+  method () {
+    console.log('method');
+  }
+};
+object5.method();// here we r accessing this method function
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock paper scissors</title>
+  <link rel="stylesheet" href="styles/10-rock-paper-scissors.css">
+  <style>
+
+  </style>
+</head>
+<body>
+  <p>
+    <h1 class="title">Rock Paper Scissors</h1>
+  </p>
+  <button onclick="
+    playGame('rock');
+  "class="move-button"><img src="images/rock-emoji.png" class="move-icon">
+  </button>
+
+  <button onclick="
+  playGame('paper');
+  " class="move-button"><img src="images/paper-emoji.png" class="move-icon"></button>
+  <button onclick="
+// we need to call the function and save the value of the parameter
+    playGame('scissors');
+  "class="move-button"><img src="images/scissors-emoji.png" class="move-icon"></button>
+  <p class="js-score class-score"></p>
+  <p class="js-moves ">
+    <!-- these fake results will be commented out since the code hasbeen done in the JS code
+    You
+    <img src="images/rock-emoji.png" class="move-icon">
+    <img src="images/scissors-emoji.png" class="move-icon">
+    Computer-->
+  </p>
+  <p class="js-result class-result"></p>
+  <button onclick="
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem('score');
+  updateScoreElement();
+  console.log('Reset button clicked');
+  "class="reset-score-button">Reset score</button>
+
+  <script src="scripts/10-rock-paper-scissors.js">
+// load the JS onto the page using source attribute
+// we can save the JS code in multiple files but load them unto the page frm top to bottom
+  </script>
+</body>
+</html>
